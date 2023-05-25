@@ -45,17 +45,16 @@
             f.close()
             return points, firstPolyLineNum
 
-The first polyline number is :  5
-
 ## call the function to read data and put into points list
->>> resuts = readPolylineFile('polylinesHw4.txt')
+>>> resuts = readPolylineFile(r'C:\GMU\stcenter\repositories\book-reference-code\4\polylinesHw4.txt') # change path as needed
+The first polyline number is :  5
 >>> points = resuts[0]
 >>> firstPolylinePointNum = resuts[1]
 >>> length = len(points)
->>> print('The total points and the numberof points for firstpolyline is',\
+>>> print('The total points and the number of points for firstpolyline is',\
       length, firstPolylinePointNum)
 
-The total points and the numberof points for firstpolyline is 18 5
+The total points and the number of points for firstpolyline is 18 5
 
 ## Gets the points for first polyline and calculate length
 >>> pointsForFirstPoly = points[0:firstPolylinePointNum]
@@ -63,7 +62,7 @@ The total points and the numberof points for firstpolyline is 18 5
 >>> lengthForFirstPoly = polyLine1.getLength()
 >>> print("Length for first polyline -> ", lengthForFirstPoly)
 
-Length for first polyline ->  155.775923237
+Length for first polyline ->  155.7759232372371
 
 ## Gets the points for second polyline and calculate length
 >>> pointsForSecondPoly = points[firstPolylinePointNum:]
@@ -71,4 +70,4 @@ Length for first polyline ->  155.775923237
 >>> lengthForSecondPoly = polyLine2.getLength()
 >>> print("Length for Second polyline -> ", lengthForSecondPoly)
 
-Length for Second polyline ->  549.438874589
+Length for Second polyline ->  549.4388745892471
