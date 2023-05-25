@@ -10,9 +10,9 @@
 >>> test.__foobar
 
 Traceback (most recent call last):
-  File "<pyshell#23>", line 1, in <module>
+  File "<pyshell#20>", line 1, in <module>
     test.__foobar
-AttributeError: Test instance has no attribute '__foobar'
+AttributeError: 'Test' object has no attribute '__foobar'. Did you mean: 'foobar'?
 >>> test._Test__foobar
 'private attr'
 >>> 
