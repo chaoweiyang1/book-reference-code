@@ -5,6 +5,9 @@ The reference code of each folder is named by its associated chapter of the book
 
 For each chapter, please program in sequence since certain following code depend on previous code. 
 
+Chapters 1-8 use Python 3.11.x
+Chapters 9-12 use Python 3.9.16 which is currently packaged with ArcGIS Pro
+
 # Software requirements: 
 * Python 3.x
 * ArcGIS 10.4 and above
