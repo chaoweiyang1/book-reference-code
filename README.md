@@ -3,7 +3,7 @@ Reference code of the [Introduction to GIS Programming and Fundamentals with Pyt
 
 The reference code of each folder is named by its associated chapter of the book. Please refer to each chapter of the text for explainations.
 
-For each chapter, please program in sequence since some following on codes dpending on previous codes. 
+For each chapter, please program in sequence since certain following code depend on previous code. 
 
 # Software requirements: 
 * Python 3.x
