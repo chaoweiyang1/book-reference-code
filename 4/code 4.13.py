@@ -1,10 +1,10 @@
 >>> import math
 >>> class Point: ## define a point class
-	    def __init__(self, x=0.0, y = 0.0):
-		self.x = x
-		self.y = y
-	    def getDistance(self,other): ## declare getDistance as a method
-		return math.sqrt((other.x-self.x)**2+(other.y-self.y)**2)
+		def __init__(self, x=0.0, y = 0.0):
+			self.x = x
+			self.y = y
+		def getDistance(self,other): ## declare getDistance as a method
+			return math.sqrt((other.x-self.x)**2+(other.y-self.y)**2)
 
 	
 #Declare three points
@@ -17,12 +17,12 @@
 ##Declare the biggestDistance variable
 >>> biggestDistance = 0.0
 >>> for i in range(len(distances)):
-	    currentDistance = distances[i]
-	    if currentDistance > biggestDistance:
-		biggestDistance = currentDistance
+		currentDistance = distances[i]
+		if currentDistance > biggestDistance:
+			biggestDistance = currentDistance
 
 		
 ## Finish finding and print
 >>> print('biggest distance is ->', biggestDistance)
-biggest distance is -> 9.43398113206
+biggest distance is -> 9.433981132056603
 >>> 

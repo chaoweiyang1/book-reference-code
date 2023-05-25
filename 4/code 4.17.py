@@ -36,13 +36,17 @@ polyline;
             file.close() # remember to close file after reading 
             return points
 ## Call the function for parsing the point file
->>> points = readPointFile('points.txt')#get all points
+>>> points = readPointFile(r'C:\GMU\stcenter\repositories\book-reference-code\4\code 4.17 data.txt') #get all points & change path as needed
 #print points
 >>> length = len(points) # get the length of points list
 >>> for i in range(length):
            point = points[i]
            print(point.x, point.y) ##print the x, y value of each point
-1.0 1.0
-2.0 2.0
-10.0 11.0
-11.2 13.4
+1.0 2.0
+100.0 300.0
+4.0 5.0
+0.0 500.0
+10.0 400.0
+600.0 20.0
+500.0 400.0
+500.0 500.0

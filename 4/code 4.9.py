@@ -3,4 +3,3 @@
 		if (layers[i].layerType == 'Image'):
 		    continue
 		layers[i].drawLayer()
-        
