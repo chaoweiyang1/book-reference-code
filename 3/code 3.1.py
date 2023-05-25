@@ -6,5 +6,5 @@
 Traceback (most recent call last):
   File "<pyshell#2>", line 1, in <module>
     mylist[0]
-NameError: name 'mylist' is not defined
+NameError: name 'mylist' is not defined. Did you mean: 'myList'?
 >>> 

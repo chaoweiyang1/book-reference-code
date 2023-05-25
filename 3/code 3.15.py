@@ -1,6 +1,6 @@
 >>> # Return nothing
 >>> def hello():
-	print 'Hello, World!'
+	print('Hello, World!')
 
 	
 >>> hi = hello()

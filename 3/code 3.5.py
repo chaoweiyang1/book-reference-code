@@ -1,13 +1,13 @@
 >>> x = type(1)
 >>> x
-<type 'int'>
+<class 'int'>
 >>> x == int
 True
 >>> type(None)
-<type 'NoneType'>
+<class 'NoneType'>
 >>> x = type(True)
 >>> x
-<type 'bool'>
+<class 'bool'>
 >>> x == int
 False
 >>> 
