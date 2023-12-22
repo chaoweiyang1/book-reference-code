@@ -15,6 +15,6 @@ p1 = Point()
 p2 = Point()
 p1.setXY(1,2)
 p2.setXY(2,3)
-p1.calDis(p2)
+print(p1.calDis(p2))
 # Output: 1.4142135623730951
 
