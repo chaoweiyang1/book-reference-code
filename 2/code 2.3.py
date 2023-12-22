@@ -1,7 +1,7 @@
 >>> class Test:
-	version = 1.0
+    version = 1.0
 
-	
+
 >>> Test.version
 1.0
 >>> t1 = Test()
