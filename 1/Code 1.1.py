@@ -9,7 +9,7 @@
 	def calDis(self,p):
 		return math.sqrt((self.x-p.x)**2+(self.y-p.y)**2)
 
-	
+
 >>> p1 = Point()
 >>> p2 = Point()
 >>> p1.setXY(1,2)
