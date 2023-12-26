@@ -49,7 +49,7 @@
 
 
 ## 6. write the results to file
->>> f=open('HM5_Result.txt','w')
+>>> f=open(r'F:\GMU\stcenter\repositories\book-reference-code\5\HM5_Result.txt','w') # Change path as needed
 >>> for result in resultList:
         f.write(result+'\n')
 >>> f.close()
