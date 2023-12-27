@@ -5,7 +5,7 @@
 >>> b = struct.unpack('>i',s)
 >>> featNum = (b[0]*2-100)/28
 >>> out = open(r'F:\GMU\stcenter\repositories\book-reference-code\6\data\schools_shp.txt','w') # Change path as needed
->>> for i in range(featNum):
+>>> for i in range(int(featNum)):
         f.seek(100+i*28+12)
         s = f.read(16)
         x,y = struct.unpack('dd',s)
