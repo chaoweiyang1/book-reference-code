@@ -1,7 +1,7 @@
 # import modules for the line length calculation,
 # binary data unpack, and visualization.
 import math
-from Tkinter import *
+from tkinter import *
 import struct
 
 # define point, polyline classes
@@ -18,7 +18,7 @@ class Polyline:
 
 #-----Part 1: read and process the first 100 bytes
 # #1. open index file to read in binary mode
-shxFile = open("Partial_Streets.shx","rb")
+shxFile = open(r"F:\GMU\stcenter\repositories\book-reference-code\6\data\Partial_Streets.shx","rb") # Change path as needed
 # shapefile name can be replaced with any polyline
 
 ##2. read index file header and interpret the meta information, e.g., bounding box, and # of #records
@@ -44,7 +44,7 @@ minX, minY, maxX, maxY = header[2],header[3],header[4],header[5]
 # define an empty list for holding offset of each feature in main file
 recordsOffset = []
 # loop through each feature
-for i in range(0,polylineNum):
+for i in range(0,int(polylineNum)):
     # jump to beginning of each record
     shxFile.seek(100+i*8)
     # read out 4 bytes as offset
@@ -58,7 +58,7 @@ print(recordsOffset)
 
 #--------Part 2: read each polyline and prepare them in right order. 
 # open the main file for read in binary
-shpFile = open("Partial_Streets.shp","rb")
+shpFile = open(r"F:\GMU\stcenter\repositories\book-reference-code\6\data\Partial_Streets.shp","rb") # Change path as needed
 # shapefile name can be replaced with any polyline
 # define an empty list for polylines
 polylines = []
