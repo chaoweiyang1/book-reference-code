@@ -1,0 +1,11 @@
+f = open(r'F:\GMU\stcenter\repositories\book-reference-code\6', 'r') # Modify path as needed
+print(f.readline())
+print(f.readline())
+print(f.readline())
+print(f.readline())
+print(f.seek(0))
+print(f.readline())
+print(f.readlines())
+print(f.seek(0))
+print(f.read())
+f.close()
