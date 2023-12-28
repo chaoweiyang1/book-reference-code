@@ -1,5 +1,5 @@
 >>> import sys
->>> sys.path.append('c:\ggs650code')
+>>> sys.path.append('F:\ggs650code') # Change path as needed
 >>> sys.path
 ['C:/Users/Phil/Documents/courses/book - gis programming/codes',
  'C:\\WINDOWS\\System32', 'C:\\Python27\\ArcGIS10.2\\Lib\\idlelib',
