@@ -3,7 +3,8 @@ Qunying
 2012.10.15
 Calcuate the Area of polygon
 """
-import Tkinter
+
+import tkinter
 import turtle
 import os
 class Point:
@@ -34,10 +35,10 @@ startDraw = False
 points =[]
 ## Main function
 def main():
-    win = Tkinter.Tk()
+    win = tkinter.Tk()
     win.title('Area Practice')
-    canvas = Tkinter.Canvas(win, bg='black', height = 600, width = 600)
-    canvas.pack(side=Tkinter.LEFT)
+    canvas = tkinter.Canvas(win, bg='black', height = 600, width = 600)
+    canvas.pack(side=tkinter.LEFT)
     t = turtle.RawTurtle(canvas)
     screen = t.getscreen()
     """
@@ -47,8 +48,8 @@ def main():
     """
     screen.setworldcoordinates(0,0,600,600)
     
-    frame = Tkinter.Frame(win) ## create a frame
-    frame.pack(side=Tkinter.RIGHT, fill = Tkinter.BOTH)
+    frame = tkinter.Frame(win) ## create a frame
+    frame.pack(side=tkinter.RIGHT, fill = tkinter.BOTH)
 
     def clickHandler(x,y): 
         global startDraw
@@ -70,7 +71,7 @@ def main():
     def drawPolygonHandler():
         screen.onclick(clickHandler)## Invoke the mouse click event       
     ## Create draw button
-    drawPolygon = Tkinter.Button(frame, width = 15, text='Draw Polygon',fg="blue", command=drawPolygonHandler)
+    drawPolygon = tkinter.Button(frame, width = 15, text='Draw Polygon',fg="blue", command=drawPolygonHandler)
     drawPolygon.pack()
 
     def finishDrawPolygonHandler():   
@@ -94,7 +95,7 @@ def main():
             t.dot(5, "blue") ## Create a circle on each vertice of the polygon
             t.write('p' + str(index)+ ':' + str(point.x)+','+str(point.y)) ## Label the x ,y value on each vertice
     ## Create a finish button    
-    finishDrawPolygon = Tkinter.Button(frame,width = 15, text= 'Finish Draw',fg="blue", command=finishDrawPolygonHandler)
+    finishDrawPolygon = tkinter.Button(frame,width = 15, text= 'Finish Draw',fg="blue", command=finishDrawPolygonHandler)
     finishDrawPolygon.pack()
 
     def cleanHandler():
@@ -104,28 +105,28 @@ def main():
         print('Clean all features')
         t.reset()   ## Reset turtle
     
-    cleanDraw = Tkinter.Button(frame, width = 15, text= 'Clean Draw',fg="blue", command=cleanHandler)
+    cleanDraw = tkinter.Button(frame, width = 15, text= 'Clean Draw',fg="blue", command=cleanHandler)
     cleanDraw.pack()
     def getAreaHandler():
         polygon = Polygon(points)
         area = polygon.getArea()
         ## Create a pop up dialog
-        win = Tkinter.Toplevel()        
+        win = tkinter.Toplevel()        
         if area > 0:
             labelText = 'The point sequence is clockwise and the area is :' + str(area)
         else:
             labelText = 'The point sequence is anticlockwise and the area is :' + str(area)
-        Tkinter.Label(win,  text=labelText).pack()   
-        Tkinter.Button(win, text='OK', command=win.destroy).pack()  
+        tkinter.Label(win,  text=labelText).pack()   
+        tkinter.Button(win, text='OK', command=win.destroy).pack()  
   
         
-    calcuateArea = Tkinter.Button(frame, width = 15,text= 'Calculate Area',fg="blue", command=getAreaHandler)
+    calcuateArea = tkinter.Button(frame, width = 15,text= 'Calculate Area',fg="blue", command=getAreaHandler)
     calcuateArea.pack()
         ## declare botton event handler and a button
     def quitHandler():
         print('GoodBye')
         os._exit(1)
-    button = Tkinter.Button(frame,width = 15, text= 'Quit',fg="blue", command=quitHandler)
+    button = tkinter.Button(frame,width = 15, text= 'Quit',fg="blue", command=quitHandler)
     button.pack()
     win.mainloop()
     
