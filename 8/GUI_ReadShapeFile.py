@@ -109,7 +109,7 @@ def readShx(fileName):
     s = shxFile.read(28)
     header = struct.unpack(">iiiiiii",s)
     fileLength = header[len(header)-1]
-    polylineNum = (fileLength*2-100)/8
+    polylineNum = int((fileLength*2-100)/8)
     s = shxFile.read(72)
     header = struct.unpack("<iidddddddd",s)
     global minX,minY,maxX,maxY
@@ -225,7 +225,7 @@ def drawPolylineOrPolygon(features, canvas):
             if (k==feature.partsNum-1):
                 endPointIndex = len(feature.points)
             else:
-                endPointIndex = polyline.partsIndex[k+1]
+                endPointIndex = feature.partsIndex[k+1]
             tempXYlist = []
             for m in range(feature.partsIndex[k], endPointIndex):            
                 tempXYlist.append(xylist[m*2])
@@ -266,7 +266,7 @@ def main():
     """
     def openFileHandler():
         print('Open File: ')
-        shpFileName = askopenfilename(filetypes=[("allfiles","*"),("shapefiles","*.shp")])
+        shpFileName = filedialog.askopenfilename(filetypes=[("allfiles","*"),("shapefiles","*.shp")])
         print('shpFile is :', shpFileName)
         readShapeFile(shpFileName, canvas)
         #polylines = readPolylineFile(shpFileName)
@@ -310,12 +310,12 @@ def main():
         tkinter.Label(win,text = helpContent).pack(pady =20,expand = 1)
         tkinter.Button(win, text='OK', command=win.destroy).pack() 
         
-    mbHelp.menu.add_command(label='Abount me', command=aboutMe)    
+    mbHelp.menu.add_command(label='About me', command=aboutMe)    
     mbHelp['menu'] = mbHelp.menu
     
     ## Create canvas to show data
-    canvas = tkinter.Canvas(frame, bg = 'black',width=windowWidth,height=windowHeight)
-    canvas.pack() 
+    canvas = tkinter.Canvas(frame, bg = 'white',width=windowWidth,height=windowHeight)
+    canvas.pack()
     win.mainloop()
     
 # For more turtle usage, please reference http://docs.python.org/library/turtle.html#turtle.dot
