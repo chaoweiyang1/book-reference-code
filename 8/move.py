@@ -3,7 +3,7 @@ Qunying
 2012.10.15
 Check line intersection
 """
-import Tkinter
+import tkinter
 import turtle
 import os
 
@@ -75,10 +75,10 @@ lineSegs =[]
 points = []
 ## Main function
 def main():
-    win = Tkinter.Tk()
+    win = tkinter.Tk()
     win.title('Line Intersection Practice')
-    canvas = Tkinter.Canvas(win, bg='black', height = 600, width = 600)
-    canvas.pack(side=Tkinter.LEFT)
+    canvas = tkinter.Canvas(win, bg='black', height = 600, width = 600)
+    canvas.pack(side=tkinter.LEFT)
     t = turtle.RawTurtle(canvas)
     screen = t.getscreen()
     """
@@ -88,8 +88,8 @@ def main():
     """
     screen.setworldcoordinates(0,600,600,0)
     
-    frame = Tkinter.Frame(win) ## create a frame
-    frame.pack(side=Tkinter.RIGHT, fill = Tkinter.BOTH)
+    frame = tkinter.Frame(win) ## create a frame
+    frame.pack(side=tkinter.RIGHT, fill = tkinter.BOTH)
 
     def clickHandler(x,y): 
         global startDraw
@@ -121,7 +121,7 @@ def main():
     def drawLineHandler():
         screen.onclick(clickHandler)## Invoke the mouse click event       
     ## Create draw button
-    drawLine = Tkinter.Button(frame, width = 15, text='Draw Lines',fg="blue", command=drawLineHandler)
+    drawLine = tkinter.Button(frame, width = 15, text='Draw Lines',fg="blue", command=drawLineHandler)
     drawLine.pack()
 
     def finishDrawLineHandler():   
@@ -155,7 +155,7 @@ def main():
             t.write('x2,y2:' + str(lineSegs[0].p2.x)+','+str(lineSegs[0].p2.y))
             
     ## Create a finish button    
-    finishDrawLine = Tkinter.Button(frame,width = 15, text= 'Finish Draw',fg="blue", command=finishDrawLineHandler)
+    finishDrawLine = tkinter.Button(frame,width = 15, text= 'Finish Draw',fg="blue", command=finishDrawLineHandler)
     finishDrawLine.pack()
     def cleanHandler():
         global startDraw
@@ -168,7 +168,7 @@ def main():
         print('Clean all features')
         t.reset()   ## Reset turtle
     
-    cleanDraw = Tkinter.Button(frame, width = 15, text= 'Clean Draw',fg="blue", command=cleanHandler)
+    cleanDraw = tkinter.Button(frame, width = 15, text= 'Clean Draw',fg="blue", command=cleanHandler)
     cleanDraw.pack()
     def checkIntersectionHandler():        
         lineSeg1 = lineSegs[0]
@@ -176,7 +176,7 @@ def main():
         ## Check if two lines intersect
         result = lineSeg1.intersect(lineSeg2)
         if type(result) == int: 
-            win = Tkinter.Toplevel()
+            win = tkinter.Toplevel()
             if result == 1: ## Means two lines are parallel to y
                 labelText = 'Two lines are parallel to y axis'            
             elif result == 0:
@@ -184,8 +184,8 @@ def main():
            
             elif result == -1:            
                 labelText = 'Not intersect!!!'
-            Tkinter.Label(win,  text=labelText).pack()   
-            Tkinter.Button(win, text='OK', command=win.destroy).pack()
+            tkinter.Label(win,  text=labelText).pack()   
+            tkinter.Button(win, text='OK', command=win.destroy).pack()
         else:
             ## Draw intersection
             print('intesection is : ', result.x, result.y)
@@ -196,13 +196,13 @@ def main():
             t.pendown()
             t.write('Intersection: '+ str(result.x)+','+str(result.y))        
             
-    checkIntersection = Tkinter.Button(frame, width = 15,text= 'Check Intersection',fg="blue", command=checkIntersectionHandler)
+    checkIntersection = tkinter.Button(frame, width = 15,text= 'Check Intersection',fg="blue", command=checkIntersectionHandler)
     checkIntersection.pack()
         ## declare botton event handler and a button
     def quitHandler():
         print('GoodBye')
         os._exit(1)
-    button = Tkinter.Button(frame,width = 15, text= 'Quit',fg="blue", command=quitHandler)
+    button = tkinter.Button(frame,width = 15, text= 'Quit',fg="blue", command=quitHandler)
     button.pack() 
     win.mainloop()
     

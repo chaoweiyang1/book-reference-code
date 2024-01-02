@@ -3,7 +3,7 @@ Qunying
 2012.10.15
 Check line intersection
 """
-import Tkinter
+import tkinter
 import turtle
 import os
 
@@ -25,46 +25,46 @@ class lineSegment:
     ## intersect reture inersection point, otherwise return -1         
     def intersect(self, lineSeg):
         if self.p1.x == self.p2.x: ## self parallel to y
-             print('First line seg verticle')
-             if lineSeg.p1.x == lineSeg.p2.x and lineSeg.p1.x == self.p1.x:
-                 return self.overlap(lineSeg)
-             else:
-                 ## Calcuate the y0 based on y = a2x + b2                 
-                 a2 = (lineSeg.p2.y-lineSeg.p1.y)/(lineSeg.p2.x-lineSeg.p1.x);
-                 b2 = lineSeg.p2.y -  a2*lineSeg.p2.x
-                 x0 = self.p1.x
-                 y0 = a2 * x0 + b2
+            print('First line seg verticle')
+            if lineSeg.p1.x == lineSeg.p2.x and lineSeg.p1.x == self.p1.x:
+                return self.overlap(lineSeg)
+            else:
+                ## Calcuate the y0 based on y = a2x + b2                 
+                a2 = (lineSeg.p2.y-lineSeg.p1.y)/(lineSeg.p2.x-lineSeg.p1.x);
+                b2 = lineSeg.p2.y -  a2*lineSeg.p2.x
+                x0 = self.p1.x
+                y0 = a2 * x0 + b2
         else: ## self is not parallel to y
              ## Check if otherlineSegment is parallel to y
             if lineSeg.p1.x == lineSeg.p2.x: ## Parallel to y
-                 ## Calcaulate a1 and b1
-                 a1 = (self.p2.y - self.p1.y)/(self.p2.x - self.p1.x)
-                 b1 = self.p1.y -  a1*self.p1.x
-                 #print("a1 and b1 is : ", a1, b1)
-                 x0 = lineSeg.p1.x
-                 y0 = a1 * x0 + b1
+                ## Calcaulate a1 and b1
+                a1 = (self.p2.y - self.p1.y)/(self.p2.x - self.p1.x)
+                b1 = self.p1.y -  a1*self.p1.x
+                #print("a1 and b1 is : ", a1, b1)
+                x0 = lineSeg.p1.x
+                y0 = a1 * x0 + b1
             else:
-                 ## Calculate a1,b1,a2,b2                
-                 a1 = (self.p2.y-self.p1.y)/(self.p2.x-self.p1.x)
-                 b1 = self.p2.y -  a1*self.p2.x
-                 a2 = (lineSeg.p2.y-lineSeg.p1.y)/(lineSeg.p2.x-lineSeg.p1.x)
-                 b2 = lineSeg.p2.y -  a2*lineSeg.p2.x
-                 if a1 == a2: 
-                     if b1 == b2: ## check if two lines overlaps
-                         return self.overlap(lineSeg) 
-                     else: ## two lines are parallel
-                         return 0
-                 else:                      
-                     x0 = (b1 - b2)/(a2 - a1)
-                     y0 = a1 * x0 + b1                     
+                ## Calculate a1,b1,a2,b2                
+                a1 = (self.p2.y-self.p1.y)/(self.p2.x-self.p1.x)
+                b1 = self.p2.y -  a1*self.p2.x
+                a2 = (lineSeg.p2.y-lineSeg.p1.y)/(lineSeg.p2.x-lineSeg.p1.x)
+                b2 = lineSeg.p2.y -  a2*lineSeg.p2.x
+                if a1 == a2: 
+                    if b1 == b2: ## check if two lines overlaps
+                        return self.overlap(lineSeg) 
+                    else: ## two lines are parallel
+                        return 0
+                else:                      
+                    x0 = (b1 - b2)/(a2 - a1)
+                    y0 = a1 * x0 + b1                     
         
         # check if x0 belongs to [x1,x2] and [x3,x4], y0 belongs to [y1, y2] and [y3,y4]
         if((self.p1.x - x0)*(x0-self.p2.x)>=0 \
            and (lineSeg.p1.x-x0)*(x0-lineSeg.p2.x)>=0\
            and (self.p1.y-y0)*(y0-self.p2.y)>=0 \
            and (lineSeg.p1.y-y0)*(y0-lineSeg.p2.y)>=0):
-             print("x0 and y0 belongs two line segment : ", x0, y0)
-             return Point(x0, y0)
+            print("x0 and y0 belongs two line segment : ", x0, y0)
+            return Point(x0, y0)
         else:
             print("x0 and y0 does not meet the conditions")
             return -1
@@ -75,10 +75,10 @@ lineSegs =[]
 points = []
 ## Main function
 def main():
-    win = Tkinter.Tk()
+    win = tkinter.Tk()
     win.title('Line Intersection Practice')
-    canvas = Tkinter.Canvas(win, bg='black', height = 600, width = 600)
-    canvas.pack(side=Tkinter.LEFT)
+    canvas = tkinter.Canvas(win, bg='black', height = 600, width = 600)
+    canvas.pack(side=tkinter.LEFT)
     t = turtle.RawTurtle(canvas)
     screen = t.getscreen()
     """
@@ -88,8 +88,8 @@ def main():
     """
     screen.setworldcoordinates(0,600,600,0)
     
-    frame = Tkinter.Frame(win) ## create a frame
-    frame.pack(side=Tkinter.RIGHT, fill = Tkinter.BOTH)
+    frame = tkinter.Frame(win) ## create a frame
+    frame.pack(side=tkinter.RIGHT, fill = tkinter.BOTH)
 
     def clickHandler(x,y): 
         global startDraw
@@ -121,7 +121,7 @@ def main():
     def drawLineHandler():
         screen.onclick(clickHandler)## Invoke the mouse click event       
     ## Create draw button
-    drawLine = Tkinter.Button(frame, width = 15, text='Draw Lines',fg="blue", command=drawLineHandler)
+    drawLine = tkinter.Button(frame, width = 15, text='Draw Lines',fg="blue", command=drawLineHandler)
     drawLine.pack()
 
     def finishDrawLineHandler():   
@@ -155,7 +155,7 @@ def main():
             t.write('x2,y2:' + str(lineSegs[0].p2.x)+','+str(lineSegs[0].p2.y))
             
     ## Create a finish button    
-    finishDrawLine = Tkinter.Button(frame,width = 15, text= 'Finish Draw',fg="blue", command=finishDrawLineHandler)
+    finishDrawLine = tkinter.Button(frame,width = 15, text= 'Finish Draw',fg="blue", command=finishDrawLineHandler)
     finishDrawLine.pack()
     def cleanHandler():
         global startDraw
@@ -168,7 +168,7 @@ def main():
         print('Clean all features')
         t.reset()   ## Reset turtle
     
-    cleanDraw = Tkinter.Button(frame, width = 15, text= 'Clean Draw',fg="blue", command=cleanHandler)
+    cleanDraw = tkinter.Button(frame, width = 15, text= 'Clean Draw',fg="blue", command=cleanHandler)
     cleanDraw.pack()
     def checkIntersectionHandler():        
         lineSeg1 = lineSegs[0]
@@ -176,7 +176,7 @@ def main():
         ## Check if two lines intersect
         result = lineSeg1.intersect(lineSeg2)
         if type(result) == int: 
-            win = Tkinter.Toplevel()
+            win = tkinter.Toplevel()
             if result == 1: ## Means two lines are parallel to y
                 labelText = 'Two lines are parallel to y axis'            
             elif result == 0:
@@ -184,8 +184,8 @@ def main():
            
             elif result == -1:            
                 labelText = 'Not intersect!!!'
-            Tkinter.Label(win,  text=labelText).pack()   
-            Tkinter.Button(win, text='OK', command=win.destroy).pack()
+            tkinter.Label(win,  text=labelText).pack()   
+            tkinter.Button(win, text='OK', command=win.destroy).pack()
         else:
             ## Draw intersection
             print('intesection is : ', result.x, result.y)
@@ -196,13 +196,13 @@ def main():
             t.pendown()
             t.write('Intersection: '+ str(result.x)+','+str(result.y))        
             
-    checkIntersection = Tkinter.Button(frame, width = 15,text= 'Check Intersection',fg="blue", command=checkIntersectionHandler)
+    checkIntersection = tkinter.Button(frame, width = 15,text= 'Check Intersection',fg="blue", command=checkIntersectionHandler)
     checkIntersection.pack()
         ## declare botton event handler and a button
     def quitHandler():
         print('GoodBye')
         os._exit(1)
-    button = Tkinter.Button(frame,width = 15, text= 'Quit',fg="blue", command=quitHandler)
+    button = tkinter.Button(frame,width = 15, text= 'Quit',fg="blue", command=quitHandler)
     button.pack() 
     win.mainloop()
     
