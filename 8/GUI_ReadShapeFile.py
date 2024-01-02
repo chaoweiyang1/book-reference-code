@@ -3,7 +3,7 @@ Qunying
 2012.10.17
 This program is to open and read ESRI polyline shapefile
 """
-import Tkinter
+import tkinter
 import turtle
 import os
 import math
@@ -15,7 +15,7 @@ import struct
 #there is an other function called LoadFileDialog which also 
 #performs the same function.     
 """
-from tkFileDialog import askopenfilename
+from tkinter import filedialog
 
 class Point:
     def __init__(self, x = 0.0, y = 0.0):
@@ -243,22 +243,22 @@ minX,minY,maxX,maxY = 99999999, 99999999,-99999999,-99999999
 shapeType=1 ## Default shapeType as 1
 ## Main function
 def main():
-    win = Tkinter.Tk()
+    win = tkinter.Tk()
     win.title('Shapefile Reader')
 
-    frame = Tkinter.Frame(win) ## create a frame to hold all widgets
-    frame.pack(side=Tkinter.LEFT, fill = Tkinter.BOTH)    
+    frame = tkinter.Frame(win) ## create a frame to hold all widgets
+    frame.pack(side=tkinter.LEFT, fill = tkinter.BOTH)    
 
     ## Create a frame to hold the menu bars
-    menubar = Tkinter.Frame(frame,relief=Tkinter.RAISED,borderwidth=1)
+    menubar = tkinter.Frame(frame,relief=tkinter.RAISED,borderwidth=1)
     menubar.pack(fill = 'x')
     """
     # A menu in Tk is a combination of a Menubutton (the title of the
     # menu) and the Menu (what drops down when the Menubutton is pressed)
     """            
-    mbFile = Tkinter.Menubutton(menubar,text='File')
-    mbFile.pack(side=Tkinter.LEFT)
-    mbFile.menu = Tkinter.Menu(mbFile)
+    mbFile = tkinter.Menubutton(menubar,text='File')
+    mbFile.pack(side=tkinter.LEFT)
+    mbFile.menu = tkinter.Menu(mbFile)
 
     """		
     # Once we've specified the menubutton and the menu, we can add
@@ -283,38 +283,38 @@ def main():
     mbFile['menu'] = mbFile.menu    
     
     ## Edit
-    mbEdit = Tkinter.Menubutton(menubar,text='Edit')
-    mbEdit.pack(side=Tkinter.LEFT)
+    mbEdit = tkinter.Menubutton(menubar,text='Edit')
+    mbEdit.pack(side=tkinter.LEFT)
     
-    mbEdit.menu = Tkinter.Menu(mbEdit)
+    mbEdit.menu = tkinter.Menu(mbEdit)
 
     def cleanHandler():        
-        canvas.delete(Tkinter.ALL) ## delete all features drawn on canvas
+        canvas.delete(tkinter.ALL) ## delete all features drawn on canvas
         
     mbEdit.menu.add_command(label='Clean', command=cleanHandler)
 
     mbEdit['menu'] = mbEdit.menu
     
     ## Help
-    mbHelp = Tkinter.Menubutton(menubar,text='Help')
-    mbHelp.pack(side=Tkinter.LEFT)
+    mbHelp = tkinter.Menubutton(menubar,text='Help')
+    mbHelp.pack(side=tkinter.LEFT)
 
-    mbHelp.menu = Tkinter.Menu(mbHelp)
+    mbHelp.menu = tkinter.Menu(mbHelp)
 
     def aboutMe():
-        win = Tkinter.Toplevel()
+        win = tkinter.Toplevel()
 
         helpContent = '1.Click File->Open to open and draw polyline .shp files \n' \
                   + '2.Click Edit->Clean to clean all features' 
 
-        Tkinter.Label(win,text = helpContent).pack(pady =20,expand = 1)
-        Tkinter.Button(win, text='OK', command=win.destroy).pack() 
+        tkinter.Label(win,text = helpContent).pack(pady =20,expand = 1)
+        tkinter.Button(win, text='OK', command=win.destroy).pack() 
         
     mbHelp.menu.add_command(label='Abount me', command=aboutMe)    
     mbHelp['menu'] = mbHelp.menu
     
     ## Create canvas to show data
-    canvas = Tkinter.Canvas(frame, bg = 'black',width=windowWidth,height=windowHeight)
+    canvas = tkinter.Canvas(frame, bg = 'black',width=windowWidth,height=windowHeight)
     canvas.pack() 
     win.mainloop()
     
