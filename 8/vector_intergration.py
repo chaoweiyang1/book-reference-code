@@ -2,9 +2,9 @@
 Qunying
 2012.10.15
 Vector data algorithms integration
-This program also creates a menubar using Tkinter widgets.
+This program also creates a menubar using tkinter widgets.
 """
-import Tkinter
+import tkinter
 import turtle
 import os
 """
@@ -14,7 +14,8 @@ import os
 #there is an other function called LoadFileDialog which also 
 #performs the same function.     
 """
-from tkFileDialog import askopenfilename  ## 
+from tkinter import filedialog 
+
 class Point:
     def __init__(self, x = 0.0, y = 0.0):
         self.x = x
@@ -43,63 +44,63 @@ startDraw = False
 points =[]
 ## Main function
 def main():
-    win = Tkinter.Tk()
+    win = tkinter.Tk()
     win.title('GIS')
     
-    frame = Tkinter.Frame(win) ## create a frame to hold all widgets
-    frame.pack(side=Tkinter.LEFT, fill = Tkinter.BOTH)
+    frame = tkinter.Frame(win) ## create a frame to hold all widgets
+    frame.pack(side=tkinter.LEFT, fill = tkinter.BOTH)
 
     ## Create a frame to hold the menu bars
-    menubar = Tkinter.Frame(frame,relief=Tkinter.RAISED,borderwidth=1)
+    menubar = tkinter.Frame(frame,relief=tkinter.RAISED,borderwidth=1)
     menubar.pack(fill = 'x')
     """
     # A menu in Tk is a combination of a Menubutton (the title of the
     # menu) and the Menu (what drops down when the Menubutton is pressed)
     """            
-    mbFile = Tkinter.Menubutton(menubar,text='File')
-    mbFile.pack(side=Tkinter.LEFT)
-    mbFile.menu = Tkinter.Menu(mbFile)
+    mbFile = tkinter.Menubutton(menubar,text='File')
+    mbFile.pack(side=tkinter.LEFT)
+    mbFile.menu = tkinter.Menu(mbFile)
 
     """		
     # Once we've specified the menubutton and the menu, we can add
     # different commands to the menu
     """
     def openFileHandler():
-        print 'Open File: '
-        shpFile = askopenfilename(filetypes=[("allfiles","*"),("shapefiles","*.shp")])
+        print('Open File: ')
+        shpFile = filedialog.askopenfilename(filetypes=[("allfiles","*"),("shapefiles","*.shp")])
 
-    mbFile.menu.add_command(label='open', command =openFileHandler)
-    mbFile.menu.add_command(label='close')
+    mbFile.menu.add_command(label='Open', command =openFileHandler)
+    mbFile.menu.add_command(label='Close')
 
     def quitHandler():
-        print 'GoodBye'
+        print('GoodBye')
         os._exit(1)
     mbFile.menu.add_command(label="Exit", command=quitHandler)
     
     mbFile['menu'] = mbFile.menu    
     
     ## Edit
-    mbEdit = Tkinter.Menubutton(menubar,text='edit')
-    mbEdit.pack(side=Tkinter.LEFT)
+    mbEdit = tkinter.Menubutton(menubar,text='Edit')
+    mbEdit.pack(side=tkinter.LEFT)
     
-    mbEdit.menu = Tkinter.Menu(mbEdit)    
-    mbEdit.menu.add_command(label='copy')
-    mbEdit.menu.add_command(label='paste')
+    mbEdit.menu = tkinter.Menu(mbEdit)    
+    mbEdit.menu.add_command(label='Copy')
+    mbEdit.menu.add_command(label='Paste')
     mbEdit['menu'] = mbEdit.menu
     
     ## Help
-    mbHelp = Tkinter.Menubutton(menubar,text='help')
-    mbHelp.pack(side=Tkinter.LEFT)
+    mbHelp = tkinter.Menubutton(menubar,text='Help')
+    mbHelp.pack(side=tkinter.LEFT)
 
-    mbHelp.menu = Tkinter.Menu(mbHelp)
-    mbHelp.menu.add_command(label='Abount me')
-    mbHelp.menu.add_command(label='Contact me')    
+    mbHelp.menu = tkinter.Menu(mbHelp)
+    mbHelp.menu.add_command(label='About me')
+    mbHelp.menu.add_command(label='Contact me')
     mbHelp['menu'] = mbHelp.menu
     
 
     ## Create canvas to show data
-    canvas = Tkinter.Canvas(frame, bg='black', height = 600, width = 600)
-    canvas.pack(side=Tkinter.LEFT)
+    canvas = tkinter.Canvas(frame, bg='black', height = 600, width = 600)
+    canvas.pack(side=tkinter.LEFT)
     t = turtle.RawTurtle(canvas)
     screen = t.getscreen()
     """
