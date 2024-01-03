@@ -9,4 +9,4 @@ outputFC = arcpy.GetParameterAsText(1)
 bufferDist = arcpy.GetParameterAsText(2)
 
 # perform buffer analysis
-arcpy.Buffer_analysis(inputFC, outputFC, bufferDist)
+arcpy.analysis.Buffer(inputFC, outputFC, bufferDist)

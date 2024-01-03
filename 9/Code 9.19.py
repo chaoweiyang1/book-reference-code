@@ -1,3 +1,5 @@
+import arcpy
+
 # use the name of the coordinate system
 spatialRef = arcpy.SpatialReference("Hawaii Albers Equal Area Conic")
 

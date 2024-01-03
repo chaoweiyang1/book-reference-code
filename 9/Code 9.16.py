@@ -1,9 +1,11 @@
+import arcpy
+
 #Please change this file path to your data location
-workspace = "O:\\Book\\Code\\9\\chp9Data"
+workspace = r"F:\GMU\stcenter\repositories\ArcGISdata\chp9data"
 
 for dirpath, dirnames, filenames in arcpy.da.Walk(workspace):
-	print("-------------")
-	print(dirpath);
-	print(dirnames);
-	print(filenames);
-	
+    print("-------------")
+    print(dirpath);
+    print(dirnames);
+    print(filenames);
+    

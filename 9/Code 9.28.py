@@ -1,11 +1,13 @@
-#Please change this file path to your data location
-arcpy.env.workspace = "O:\\Book\\Code\\9\\chp9Data"
+import arcpy
 
-arcpy.MakeFeatureLayer_management("states.shp", "stateLy")
-arcpy.MakeFeatureLayer_management("amtk_sta.shp", "stationLy")
+#Please change this file path to your data location
+arcpy.env.workspace = r"F:\GMU\stcenter\repositories\ArcGISdata\chp9data"
+
+arcpy.management.MakeFeatureLayer("states.shp", "stateLy")
+arcpy.management.MakeFeatureLayer("amtk_sta.shp", "stationLy")
 
 # select Virginia from the state layer first
-arcpy.SelectLayerByAttribute_management("stateLy","NEW_SELECTION",'"STATE_NAME"=\'Virginia\'')
+arcpy.management.SelectLayerByAttribute("stateLy","NEW_SELECTION",'"STATE_NAME"=\'Virginia\'')
 
 # then select the railway stations (points) completely within Virginia (polygon)
-arcpy.SelectLayerByLocation_management("stationLy","COMPLETELY_WITHIN","stateLy",selection_type="NEW_SELECTION")
+arcpy.management.SelectLayerByLocation("stationLy","COMPLETELY_WITHIN","stateLy",selection_type="NEW_SELECTION")

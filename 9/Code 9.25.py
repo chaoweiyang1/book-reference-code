@@ -12,5 +12,5 @@ bufferDist = arcpy.GetParameterAsText(2)
 arcpy.AddMessage('-------Buffer Distance: ' + bufferDist)
 
 # perform buffer analysis
-arcpy.Buffer_analysis(inputFC, outputFC, bufferDist)
+arcpy.analysis.Buffer(inputFC, outputFC, bufferDist)
 arcpy.AddMessage("Finished Successfully")
