@@ -5,7 +5,7 @@ spatialRef = arcpy.SpatialReference("Hawaii Albers Equal Area Conic")
 
 # or use a projection file (.prj)
 #Please change this file path to your data location
-sr = arcpy.SpatialReference("C:\\coordsystems\\NAD 1983.prj")
+sr = arcpy.SpatialReference(r"F:\GMU\stcenter\repositories\ArcGISdata\chp9data\states.prj")
 
 print(spatialRef.name)
 print(spatialRef.XYTolerance)
