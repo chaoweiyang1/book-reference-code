@@ -1,6 +1,8 @@
+import arcpy
+
 #create a route layer from the network dataset
 #Please change this file path to your data location
-arcpy.env.workspace = 'C:\\ArcGISdata\\chp11data'
+arcpy.env.workspace = r'F:\GMU\stcenter\repositories\ArcGISdata\chp11data'
 
 routeLy = arcpy.na.MakeRouteLayer(in_network_dataset = "roads_ND.nd", out_network_analysis_layer =
 "myRoute", impedance_attribute = "Length", find_best_order = "FIND_BEST_ORDER",
