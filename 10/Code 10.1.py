@@ -1,6 +1,8 @@
+import arcpy
+
 # classify elevations into classes
 # set workspace #Please change this file path to your data location
-arcpy.env.workspace = "C:\\ArcGISdata\\chp10data\\chp10data.gdb"
+arcpy.env.workspace = r"F:\GMU\stcenter\repositories\ArcGISdata\chp10data\chp10data.gdb"
 
 """
 	Check the license of the spatial analyst extension.  The returning value "available"
